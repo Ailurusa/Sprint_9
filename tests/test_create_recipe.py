@@ -29,4 +29,4 @@ class TestCreateRecipe:
             recipe.description,
             recipe.image_path,
         )
-        assert page.is_visible_title() and page.is_recipe_title_equal() == recipe.title
+        assert page.is_visible_title() and page.get_recipe_title_equal() == recipe.title

@@ -70,5 +70,6 @@ class CreateRecipePage(BasePage):
         return self.is_visible(L.RECIPE_TITLE)
 
     @allure.step("Получить название рецепта")
-    def is_recipe_title_equal(self):
+    def get_recipe_title_equal(self):
+        self.wait_for_visibility(L.RECIPE_NAME_ON_PAGE)
         return self.extract_text(L.RECIPE_NAME_ON_PAGE)
