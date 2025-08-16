@@ -19,5 +19,4 @@ class TestRegistration:
         current_url = reg.get_current_page_url()
         login_page = LoginPage(driver)
         check_login = login_page.check_visibility_login_form()
-
         assert current_url == LOGIN_URL and check_login

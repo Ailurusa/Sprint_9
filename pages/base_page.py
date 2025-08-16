@@ -52,3 +52,7 @@ class BasePage:
         WebDriverWait(self.browser, page_ready_timeout).until(
             lambda d: d.execute_script("return document.readyState") == "complete"
         )
+
+    @allure.step("Ждем URL")
+    def wait_url_is(self, url: str, timeout: int = 15):
+        WebDriverWait(self.browser, timeout).until(EC.url_to_be(url))

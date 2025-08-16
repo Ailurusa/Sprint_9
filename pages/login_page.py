@@ -2,6 +2,7 @@ import allure
 
 from locators.login_locators import LoginLocators
 from pages.base_page import BasePage
+from urls import RECIPES_URL
 
 
 class LoginPage(BasePage):
@@ -39,3 +40,7 @@ class LoginPage(BasePage):
     @allure.step('Проверка отображения формы авторизации пользователя')
     def check_visibility_logout_button(self):
         return self.is_visible(LoginLocators.LOGOUT_LINK)
+
+    @allure.step("Ожидать, что страница авторизации открыта")
+    def wait_opened(self):
+        self.wait_url_is(RECIPES_URL)

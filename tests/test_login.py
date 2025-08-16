@@ -18,5 +18,6 @@ class TestLogin:
         )
         login = LoginPage(driver)
         login.sign_in(user_payload.email, user_payload.password)
+        login.wait_opened()
         current_url = login.get_current_page_url()
         assert current_url == RECIPES_URL and login.check_visibility_logout_button()

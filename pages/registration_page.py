@@ -2,7 +2,7 @@ import allure
 
 from locators.registration_locators import RegistrationLocators
 from pages.base_page import BasePage
-from urls import REGISTER_URL
+from urls import REGISTER_URL, LOGIN_URL
 
 
 class RegistrationPage(BasePage):
@@ -43,6 +43,7 @@ class RegistrationPage(BasePage):
         self.set_email(email)
         self.set_password(password)
         self.submit_registration()
+        self.wait_opened()
 
     @allure.step("Получение текущего адреса страницы")
     def get_current_page_url(self):
@@ -52,3 +53,7 @@ class RegistrationPage(BasePage):
     def open(self):
         self.open_url(REGISTER_URL)
         self.wait_registration_form()
+
+    @allure.step("Ожидать, что страница авторизации открыта")
+    def wait_opened(self):
+        self.wait_url_is(LOGIN_URL)
